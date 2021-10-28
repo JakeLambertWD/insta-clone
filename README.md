@@ -1,29 +1,86 @@
-# Next.js + Tailwind CSS Example
+# Next.js + Tailwind CSS Project setup
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+npx create-next-app -e with-tailwindcss my-project
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
+# React/Tailwind heroicons
 
-## Preview
+npm install @heroicons/react
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+# Next/image src='link'
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+when using this component i.e. <Image src='https://links.papareact.com/jjm' />
 
-## Deploy your own
+this will throw an error about the src link.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+you must create a next.config.js file like so:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+module.exports = {
+images: {
+domains: ['links.papareact.com']
+}
+};
 
-## How to use
+# Customise a form field in Tailwind (reseting the default styles)
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+for this you need to bring in a Tailwind extension to override these UI elements
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+https://github.com/tailwindlabs/tailwindcss-forms
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+npm install @tailwindcss/forms
+
+add as a plugin in tailwind.config.js
+
+# Create your own Custom Tailwind Utility Classes
+
+create an external CSS file named globals.css
+
+set this inside to bring in all the Tailwind utility classes
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+go to_app.js and change the CSS file link
+from: import 'tailwindcss/tailwind.css'
+to: import '../styles/globals.css';
+
+# faker.js
+
+generate masses amount of fake data
+
+npm i faker
+
+# Tailwind scrollbar
+
+npm install --save-dev tailwind-scrollbar
+
+add as a plugin in tailwind.config.js
+
+require('tailwind-scrollbar')
+
+# Tailwind scroll-bar-hide
+
+npm install tailwind-scrollbar-hide
+
+add as a plugin in tailwind.config.js
+
+require('tailwind-scrollbar-hide')
+
+# Nextauth.js
+
+https://next-auth.js.org/
+
+npm install next-auth@beta
+
+# firebase
+
+npm i firebase
+
+Setup a firebase web app on Firebase
+
+# recoil
+
+npm install recoil
+
+# headless ui Tailwind
+
+npm install @headlessui/react
