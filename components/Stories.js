@@ -1,4 +1,4 @@
-import faker from "faker";
+import { faker } from "@faker-js/faker";
 import { useEffect, useState } from "react";
 import Story from "../components/Story";
 
@@ -8,7 +8,11 @@ const Stories = () => {
   useEffect(() => {
     // Generate fake user data
     const fakeData = [...Array(20)].map((_, i) => ({
-      ...faker.helpers.contextualCard(),
+      avatar: `https://i.pravatar.cc/150?img=${faker.datatype.number({
+        min: 1,
+        max: 70,
+      })}`,
+      username: faker.internet.userName(),
       id: i,
     }));
 
